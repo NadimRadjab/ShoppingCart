@@ -6,9 +6,15 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import styles from '../styles/CardStyles';
 
-function Cards({ classes, price, img, name, about }) {
+function Cards({ classes, price, img, name, about, addQuantiy, removeQuantity, quantity }) {
+
+    const handleAddQuantity = () => {
+        addQuantiy(name);
+    }
 
     return (
         <Card className={classes.root} >
@@ -21,15 +27,21 @@ function Cards({ classes, price, img, name, about }) {
                     <Typography color="textSecondary" component="h3">
                         {about}
                     </Typography>
-                    <Typography color="textSecondary" component="h3">
-                        {price}
-                    </Typography>
+
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                    About
+                <Typography color="textSecondary" component="h3">
+                    {price}
+                </Typography>
+                <Button onClick={handleAddQuantity} size="small" color="primary">
+                    <ArrowUpwardIcon />
                 </Button>
+                <span>{quantity}</span>
+                <Button onClick={() => removeQuantity(name)} size="small" color="primary">
+                    <ArrowDownwardIcon />
+                </Button>
+
 
             </CardActions>
         </Card>

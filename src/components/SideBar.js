@@ -1,15 +1,21 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-function SideBar() {
+import { withStyles } from '@material-ui/styles'
+import styles from '../styles/SideBarStyles'
+
+
+
+function SideBar({ classes, links }) {
 
     return (
-        <div>
-            <NavLink to='/'>Proteins</NavLink>
-            <NavLink to='/'>Pretein Bars</NavLink>
-            <NavLink to='/'>Creatin</NavLink>
-            <NavLink to='/'>Vitamins</NavLink>
+        <div className={classes.root}>
+            {links.map(supp => (
+                <NavLink key={supp.id} to={`/shoping/${supp.id}`} >
+                    {supp.supplementName}
+                </NavLink>
+            ))}
         </div>
     )
 }
 
-export default SideBar;
+export default withStyles(styles)(SideBar);

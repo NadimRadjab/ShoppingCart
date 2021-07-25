@@ -7,11 +7,20 @@ import Shoping from './components/Shoping';
 function Routs() {
     const [items, setItems] = useState(supplements);
 
+    const findSupplement = id => {
+        return items.find(supplement => {
+            return supplement.id === id
+        });
+    }
+
+
     return (
         <BrowserRouter>
             <Switch>
                 <Route exact path='/' render={() => <App />} />
-                <Route exact path='/shoping/' render={() => <Shoping {...items[0]} />} />
+                <Route
+                    exact path='/shoping/:id'
+                    render={(routeProps) => <Shoping items={items} stuff={findSupplement(routeProps.match.params.id)} />} />
             </Switch>
 
         </BrowserRouter>
