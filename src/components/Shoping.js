@@ -6,8 +6,8 @@ import styles from '../styles/ShopingStyles'
 
 
 function Shoping({ classes, stuff, items }) {
-    const [quantity, setQuantity] = useState(1);
-    const [item, setItem] = useState(stuff.supm)
+    // const [quantity, setQuantity] = useState(1);
+    // const [item, setItem] = useState(stuff.supm)
 
 
     // useEffect(() => {
@@ -21,43 +21,44 @@ function Shoping({ classes, stuff, items }) {
 
     // }, [])
 
-    const addQuantity = (name) => {
-        setQuantity(quantity + 1)
-        const updatePrice = stuff.supm.map(suppm => {
-            if (suppm.name === name) {
-                return { ...suppm, price: suppm.price * quantity }
-            }
-            return suppm
-        })
+    // const addQuantity = (name) => {
+    //     setQuantity(quantity + 1)
+    //     const updatePrice = stuff.supm.map(suppm => {
+    //         if (suppm.name === name) {
+    //             return { ...suppm, price: suppm.price * quantity }
+    //         }
+    //         return suppm
+    //     })
 
-        setItem(updatePrice)
-    }
-    const removeQuantity = (name) => {
-        if (quantity <= 2) return
-        setQuantity(quantity - 1)
-        const updatePrice = item.map(suppm => {
-            if (suppm.name === name) {
-                return { ...suppm, price: suppm.price / quantity }
-            }
-            return suppm
-        })
-        setItem(updatePrice)
-    }
+    //     setItem(updatePrice)
+    // }
+    // const removeQuantity = (name) => {
+    //     if (quantity <= 2) return
+    //     setQuantity(quantity - 1)
+    //     const updatePrice = item.map(suppm => {
+    //         if (suppm.name === name) {
+    //             return { ...suppm, price: suppm.price / quantity }
+    //         }
+    //         return suppm
+    //     })
+    //     setItem(updatePrice)
+    // }
 
     return (
         <div className={classes.root}>
             <div className={classes.items}>
-                <SideBar links={items} />
+                <SideBar links={stuff.supm} />
                 <div className={classes.supplements}>
-                    {item.map(p => (
+                    {stuff.supm.map(p => (
                         <Cards
                             key={p.name}
                             name={p.name}
                             about={p.about}
                             img={p.img}
-                            quantity={quantity}
-                            addQuantiy={addQuantity}
-                            removeQuantity={removeQuantity}
+                            stuff={stuff}
+                            // quantity={quantity}
+                            // addQuantiy={addQuantity}
+                            // removeQuantity={removeQuantity}
                             price={p.price}
                         />
                     ))}
