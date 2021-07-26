@@ -10,7 +10,6 @@ const styles = {
             fontSize: '22px'
         },
         '& a svg': {
-
             fontSize: '40px'
         }
     }

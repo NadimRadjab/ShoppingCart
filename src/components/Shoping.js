@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Cards from './Cards';
 import SideBar from './SideBar';
 import { withStyles } from '@material-ui/styles'
@@ -6,7 +6,7 @@ import styles from '../styles/ShopingStyles'
 import NavBar from './NavBar';
 
 
-function Shoping({ classes, findSupplement, supplement }) {
+function Shoping({ classes, findSupplement, supplement, addToShopingCart }) {
 
 
     return (
@@ -22,6 +22,7 @@ function Shoping({ classes, findSupplement, supplement }) {
                                 name={p.name}
                                 about={p.about}
                                 img={p.img}
+                                addToShopingCart={addToShopingCart}
                                 supplement={findSupplement}
                             />
                         ))}

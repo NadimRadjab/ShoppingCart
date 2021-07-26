@@ -10,7 +10,7 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import styles from '../styles/CardStyles';
 
-function Cards({ classes, img, name, about, supplement }) {
+function Cards({ classes, img, name, about, supplement, addToShopingCart }) {
     const [quantity, setQuantity] = useState(1);
     const [newSupplements, setNewSupplements] = useState([])
 
@@ -45,6 +45,9 @@ function Cards({ classes, img, name, about, supplement }) {
         })
         setNewSupplements(updatePrice)
     }
+    const handleShoping = () => {
+        addToShopingCart(supplement.suppm, name)
+    }
 
     let currentPrice = newSupplements.map(p => {
         if (p.name === name) {
@@ -78,9 +81,11 @@ function Cards({ classes, img, name, about, supplement }) {
                 <Button onClick={() => removeQuantity(name)} size="small" color="primary">
                     <ArrowDownwardIcon />
                 </Button>
-
-
+                <Button onClick={handleShoping} size="small" color="primary">
+                    Add To Cart
+                </Button>
             </CardActions>
+
         </Card>
     )
 

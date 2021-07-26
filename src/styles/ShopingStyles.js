@@ -1,9 +1,11 @@
 const styles = {
     root: {
         height: '100vh',
-
+        backgroundColor: '#FAF9F4',
+        overflow: 'auto',
     },
     cards: {
+
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
