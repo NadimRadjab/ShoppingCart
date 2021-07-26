@@ -4,6 +4,9 @@ const styles = {
         height: '100vh',
         backgroundSize: 'cover',
         background: `url(${bg1}) no-repeat center center fixed`,
+
+    },
+    stuff: {
         color: 'white',
         display: 'flex',
         alignItems: 'center'

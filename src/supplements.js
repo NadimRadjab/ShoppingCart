@@ -7,7 +7,7 @@ export default [{
 
     supplementName: 'Proteins',
     id: 'proteins-sup',
-    supm: [{
+    suppm: [{
         name: 'Optimum Nutrition Gold Standard Whey',
         img: goldP,
         about: 'The World’s best selling Whey protein powder for over 20 years. Instant Whey Protein Powder aimed at anyone looking for support before, during or after their workout.',
@@ -38,7 +38,7 @@ export default [{
 
     supplementName: 'Protein Bars',
     id: 'protein-bars',
-    supm: [{
+    suppm: [{
         name: 'Optimum Nutrition Protein Bar',
         img: 'https://m.media-amazon.com/images/I/711IhS6Lw8L._AC_SX466_.jpg',
         about: 'A delicious treat that is also a fantastic source of nutrients with 20 g of protein in each bar, including whey protein isolate and casein protein.',
@@ -54,11 +54,37 @@ export default [{
         name: 'Time Bar',
         img: 'https://www.time4nutrition.co.uk/wp-content/uploads/2020/07/TIME-BAR_-box-and-bar-chocolate.jpg',
         about: 'Containing 21g of protein and only 1g of sugar these bars taste too good to be true with an amazing non-chewy texture and high protein hit.',
-        price: parseFloat('2.06')
+        price: '2.06'
     },
 
 
     ]
-}]
+},
+{
+
+    supplementName: 'Creatin',
+    id: 'creatin-sup',
+    suppm: [{
+        name: 'Optimum Nutrition Protein Bar',
+        img: 'https://m.media-amazon.com/images/I/711IhS6Lw8L._AC_SX466_.jpg',
+        about: 'A delicious treat that is also a fantastic source of nutrients with 20 g of protein in each bar, including whey protein isolate and casein protein.',
+        price: '2.34'
+    },
+    {
+        name: 'Biotech USA Protein Bar',
+        img: 'https://www.muskelmacher-shop.de/media/image/a6/aa/3a/BioTech-USA-Protein-Bar_600x600.jpg',
+        about: 'By far the best protein bar from BioTech USA! And just as succinctly it is called: Biotech USA Protein Bar.',
+        price: '2.14'
+    },
+    {
+        name: 'Time Bar',
+        img: 'https://www.time4nutrition.co.uk/wp-content/uploads/2020/07/TIME-BAR_-box-and-bar-chocolate.jpg',
+        about: 'Containing 21g of protein and only 1g of sugar these bars taste too good to be true with an amazing non-chewy texture and high protein hit.',
+        price: '2.06'
+    },
+
+
+    ]
+},]
 
 

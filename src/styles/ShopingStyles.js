@@ -1,6 +1,9 @@
 const styles = {
     root: {
         height: '100vh',
+
+    },
+    cards: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'

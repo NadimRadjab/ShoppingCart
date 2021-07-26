@@ -10,23 +10,19 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import styles from '../styles/CardStyles';
 
-function Cards({ classes, img, name, about, stuff, price }) {
+function Cards({ classes, img, name, about, supplement }) {
     const [quantity, setQuantity] = useState(1);
-    const [item, setItem] = useState(stuff.supm)
-
-    // const handleAddQuantity = () => {
-    //     addQuantiy(name);
-    // }
+    const [newSupplements, setNewSupplements] = useState([])
 
 
     useEffect(() => {
-        const updatePrice = stuff.supm.map(suppm => {
+        const updatePrice = supplement.suppm.map(suppm => {
 
             return { ...suppm, price: suppm.price * quantity }
         })
 
-        setItem(updatePrice)
-        console.log(updatePrice)
+
+        setNewSupplements(updatePrice)
 
     }, [quantity])
 
@@ -36,18 +32,21 @@ function Cards({ classes, img, name, about, stuff, price }) {
 
     }
     const removeQuantity = (name) => {
+
         if (quantity <= 1) return;
-        setQuantity(quantity - 1)
-        const updatePrice = item.map(suppm => {
+
+        setQuantity(quantity - 1);
+
+        const updatePrice = newSupplements.map(suppm => {
             if (suppm.name === name) {
                 return { ...suppm, price: suppm.price / quantity }
             }
             return suppm
         })
-        setItem(updatePrice)
+        setNewSupplements(updatePrice)
     }
 
-    let test = item.map(p => {
+    let currentPrice = newSupplements.map(p => {
         if (p.name === name) {
             return p.price
         }
@@ -57,20 +56,20 @@ function Cards({ classes, img, name, about, stuff, price }) {
     return (
         <Card className={classes.root} >
             <CardActionArea>
-                <img src={img} />
+                <img src={img} alt={name} />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {name}
                     </Typography>
-                    <Typography color="textSecondary" component="h3">
+                    <Typography color="textSecondary" component="h2">
                         {about}
                     </Typography>
 
                 </CardContent>
             </CardActionArea>
-            <CardActions>
+            <CardActions className={classes.actions}>
                 <Typography color="textSecondary" component="h3">
-                    {test}
+                    {currentPrice}&#8364;
                 </Typography>
                 <Button onClick={addQuantity} size="small" color="primary">
                     <ArrowUpwardIcon />

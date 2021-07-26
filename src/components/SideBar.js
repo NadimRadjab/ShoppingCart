@@ -9,9 +9,9 @@ function SideBar({ classes, links }) {
 
     return (
         <div className={classes.root}>
-            {links.map(supp => (
-                <NavLink key={supp.id} to={`/shoping/${supp.id}`} >
-                    {supp.supplementName}
+            {links.map(suppm => (
+                <NavLink key={suppm.id} to={`/shoping/${suppm.id}`} >
+                    {suppm.supplementName}
                 </NavLink>
             ))}
         </div>
