@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 import styles from '../styles/HomeStyles'
 import NavBar from './NavBar'
 
-function Home({ classes }) {
+function Home({ classes, cartItems }) {
     return (
         <div className={classes.root}>
-            <NavBar className={classes.nav} />
+            <NavBar className={classes.nav} cartItems={cartItems} />
 
             <div className={classes.stuff}>
                 <div className={classes.items}>

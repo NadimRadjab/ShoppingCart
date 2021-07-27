@@ -30,10 +30,11 @@ function Routs() {
 
         <BrowserRouter>
             <Switch>
-                <Route exact path='/' render={() => <App />} />
+                <Route exact path='/' render={() => <App cartItems={shopingCart} />} />
                 <Route
                     exact path='/shoping/:id'
                     render={(routeProps) => <Shoping
+                        cartItems={shopingCart}
                         supplement={supplement}
                         addToShopingCart={addToShopingCart}
                         findSupplement={findSupplement(routeProps.match.params.id)}

@@ -46,7 +46,7 @@ function Cards({ classes, img, name, about, supplement, addToShopingCart }) {
         setNewSupplements(updatePrice)
     }
     const handleShoping = () => {
-        addToShopingCart(supplement.suppm, name)
+        addToShopingCart(newSupplements, name)
     }
 
     let currentPrice = newSupplements.map(p => {

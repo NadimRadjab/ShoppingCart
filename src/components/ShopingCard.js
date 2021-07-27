@@ -10,24 +10,25 @@ import styles from '../styles/ShopingCardStyles';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
-function ShopingCard({ classes, name, price, img }) {
+function ShopingCard({ classes, name, price, img, }) {
 
     return (
         <Card className={classes.root} >
             <CardActionArea>
                 <img src={img} alt={name} />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {name}
-                    </Typography>
 
-                </CardContent>
-            </CardActionArea>
-            <CardActions className={classes.actions}>
-                <Typography color="textSecondary" component="h3">
-                    {price}
-                    {/* {currentPrice}&#8364; */}
+                <Typography gutterBottom variant="h6" component="p">
+                    {name}
                 </Typography>
+
+
+            </CardActionArea>
+            <Typography color="textSecondary" component="h3">
+                {price}
+                {/* {currentPrice}&#8364; */}
+            </Typography>
+            <CardActions className={classes.actions}>
+
                 <Button size="small" color="primary">
                     <ArrowUpwardIcon />
                 </Button>
@@ -35,10 +36,11 @@ function ShopingCard({ classes, name, price, img }) {
                 <Button size="small" color="primary">
                     <ArrowDownwardIcon />
                 </Button>
-                <Button size="small" color="primary">
-                    delete
-                </Button>
+
             </CardActions>
+            <Button size="small" color="primary">
+                delete
+            </Button>
 
         </Card>
 

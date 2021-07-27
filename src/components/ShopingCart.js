@@ -10,7 +10,7 @@ function ShopingCart({ classes, cartItems }) {
                 <ShopingCard supplement={cartItems}
                     img={item.img}
                     name={item.name}
-                    item={item.price} />
+                    price={item.price} />
             ))}
         </div>
     )

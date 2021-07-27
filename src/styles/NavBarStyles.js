@@ -12,6 +12,16 @@ const styles = {
         '& a svg': {
             fontSize: '40px'
         }
+    },
+    drawerHeader: {
+        width: '500px',
+        display: 'flex',
+        margin: '1rem'
+    },
+    total: {
+        // position: 'absolute',
+        // top: 130,
+        // right: 120
     }
 }
 export default styles

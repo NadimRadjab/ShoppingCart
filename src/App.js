@@ -1,10 +1,10 @@
 import Home from "./components/Home";
 
 
-function App() {
+function App({ cartItems }) {
   return (
     <div className="App">
-      <Home />
+      <Home cartItems={cartItems} />
     </div>
   );
 }

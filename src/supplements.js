@@ -2,6 +2,12 @@ import goldP from './imgs/goldP.jpeg'
 import nitorP from './imgs/nitroP.jpg'
 import scitecP from './imgs/scitecP.png'
 import weiderP from './imgs/weiderP.jpeg'
+import bioPB from './imgs/bioPB.jpeg'
+import oPB from './imgs/oPB.jpg'
+import tmPB from './imgs/tmPB.jpeg'
+import opC from './imgs/opC.jpeg'
+import mtC from './imgs/mtC.jpg'
+import sctC from './imgs/sctC.jpeg'
 
 export default [{
 
@@ -26,7 +32,7 @@ export default [{
         price: '49.44'
     },
     {
-        name: 'Weider Premium Whey Protein Powde',
+        name: 'Weider Premium Whey Protein Powder',
         img: weiderP,
         about: 'Weider has succeeded in developing a biologically high quality whey protein, which has a very good taste and meets the nutritional needs.',
         price: '51.44'
@@ -40,19 +46,19 @@ export default [{
     id: 'protein-bars',
     suppm: [{
         name: 'Optimum Nutrition Protein Bar',
-        img: 'https://m.media-amazon.com/images/I/711IhS6Lw8L._AC_SX466_.jpg',
+        img: oPB,
         about: 'A delicious treat that is also a fantastic source of nutrients with 20 g of protein in each bar, including whey protein isolate and casein protein.',
         price: '2.34'
     },
     {
         name: 'Biotech USA Protein Bar',
-        img: 'https://www.muskelmacher-shop.de/media/image/a6/aa/3a/BioTech-USA-Protein-Bar_600x600.jpg',
+        img: bioPB,
         about: 'By far the best protein bar from BioTech USA! And just as succinctly it is called: Biotech USA Protein Bar.',
         price: '2.14'
     },
     {
         name: 'Time Bar',
-        img: 'https://www.time4nutrition.co.uk/wp-content/uploads/2020/07/TIME-BAR_-box-and-bar-chocolate.jpg',
+        img: tmPB,
         about: 'Containing 21g of protein and only 1g of sugar these bars taste too good to be true with an amazing non-chewy texture and high protein hit.',
         price: '2.06'
     },
@@ -65,22 +71,22 @@ export default [{
     supplementName: 'Creatin',
     id: 'creatin-sup',
     suppm: [{
-        name: 'Optimum Nutrition Protein Bar',
-        img: 'https://m.media-amazon.com/images/I/711IhS6Lw8L._AC_SX466_.jpg',
-        about: 'A delicious treat that is also a fantastic source of nutrients with 20 g of protein in each bar, including whey protein isolate and casein protein.',
-        price: '2.34'
+        name: 'Optimum Nutrition Creatine',
+        img: opC,
+        about: 'AOptimum  Nutrition  Creatine Powder is 100% micronized creatine powder of the best quality. The job of creatine is to restore ATP that has been used up.',
+        price: '15.34'
     },
     {
-        name: 'Biotech USA Protein Bar',
-        img: 'https://www.muskelmacher-shop.de/media/image/a6/aa/3a/BioTech-USA-Protein-Bar_600x600.jpg',
-        about: 'By far the best protein bar from BioTech USA! And just as succinctly it is called: Biotech USA Protein Bar.',
-        price: '2.14'
+        name: 'MuscleTech Platinum 100% Creatine',
+        img: mtC,
+        about: 'Latinum 100 percent creatine your muscles with the Worldâ delivers €s highest quality and clinically researched form of micronised creatine.',
+        price: '16.56'
     },
     {
-        name: 'Time Bar',
-        img: 'https://www.time4nutrition.co.uk/wp-content/uploads/2020/07/TIME-BAR_-box-and-bar-chocolate.jpg',
-        about: 'Containing 21g of protein and only 1g of sugar these bars taste too good to be true with an amazing non-chewy texture and high protein hit.',
-        price: '2.06'
+        name: '100% Creatine Monohydrate 500g',
+        img: sctC,
+        about: 'Creatine is a nitrogen-containing organic acid found in vertebrates. 95% of the creatine in the body is found in the skeletal muscles.',
+        price: '14.06'
     },
 
 

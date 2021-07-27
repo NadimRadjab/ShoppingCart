@@ -6,12 +6,12 @@ import styles from '../styles/ShopingStyles'
 import NavBar from './NavBar';
 
 
-function Shoping({ classes, findSupplement, supplement, addToShopingCart }) {
+function Shoping({ classes, findSupplement, supplement, addToShopingCart, cartItems }) {
 
 
     return (
         <div className={classes.root}>
-            <NavBar />
+            <NavBar cartItems={cartItems} />
             <div className={classes.cards}>
                 <div className={classes.items}>
                     <SideBar links={supplement} />
