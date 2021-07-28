@@ -1,13 +1,13 @@
-import goldP from './imgs/goldP.jpeg'
-import nitorP from './imgs/nitroP.jpg'
+import goldP from './imgs/goldP.png'
+import nitorP from './imgs/nitroP.png'
 import scitecP from './imgs/scitecP.png'
-import weiderP from './imgs/weiderP.jpeg'
-import bioPB from './imgs/bioPB.jpeg'
-import oPB from './imgs/oPB.jpg'
-import tmPB from './imgs/tmPB.jpeg'
-import opC from './imgs/opC.jpeg'
-import mtC from './imgs/mtC.jpg'
-import sctC from './imgs/sctC.jpeg'
+import weiderP from './imgs/weiderP.png'
+import bioPB from './imgs/bioPB.png'
+import oPB from './imgs/oPB.png'
+import tmPB from './imgs/tmPB.png'
+import opC from './imgs/opC.png'
+import mtC from './imgs/mtC.png'
+import sctC from './imgs/sctC.png'
 
 export default [{
 
