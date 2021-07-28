@@ -79,8 +79,10 @@ function NavBar({ classes, cartItems }) {
                     {cartItems.map(item => (
                         <ShopingCard supplement={cartItems}
                             img={item.img}
-                            name={item.name}
-                            price={item.price} />
+                            qty={item.qty}
+                            name={item.suppmName}
+                            price={item.price}
+                            key={item.suppmName} />
                     ))}
 
                 </List>

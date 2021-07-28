@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
 import styles from '../styles/ShopingCardStyles';
 
-function ShopingCard({ classes, name, price, img, }) {
+function ShopingCard({ classes, name, price, img, qty }) {
 
     return (
         <Card className={classes.root} >
@@ -34,7 +34,7 @@ function ShopingCard({ classes, name, price, img, }) {
                         <RemoveIcon />
                     </Button>
 
-                    <span className={classes.quantity}>1</span>
+                    <span className={classes.quantity}>{qty}</span>
                     <Button size="small" color="primary">
                         <AddIcon />
                     </Button>

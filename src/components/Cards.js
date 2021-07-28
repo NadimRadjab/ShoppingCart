@@ -17,42 +17,77 @@ function Cards({ classes, img, name, about, supplement, addToShopingCart }) {
 
     useEffect(() => {
         const updatePrice = supplement.suppm.map(suppm => {
+            let newObj = {
+                suppmName: suppm.name,
+                img: suppm.img,
+                qty: 1,
+                price: function () {
 
-            return { ...suppm, price: suppm.price * quantity }
+                    return suppm.price * this.qty
+                },
+                addQty: function () {
+
+                    return ++this.qty
+                },
+                subtractQty: function () {
+
+                    return --this.qty
+                }
+
+            }
+            // return { ...suppm, price: suppm.price * quantity };
+            return newObj
         })
 
 
         setNewSupplements(updatePrice)
+
 
     }, [quantity])
 
 
     const addQuantity = () => {
-        setQuantity(quantity + 1);
+        // setQuantity(quantity + 1);
+        let newPrice = (newSupplements.map(suppm => {
+            if (suppm.suppmName === name) {
 
-    }
-    const removeQuantity = (name) => {
+                return { ...suppm, qty: suppm.addQty() }
 
-        if (quantity <= 1) return;
-
-        setQuantity(quantity - 1);
-
-        const updatePrice = newSupplements.map(suppm => {
-            if (suppm.name === name) {
-                return { ...suppm, price: suppm.price / quantity }
             }
             return suppm
+
+
+        }))
+        setNewSupplements(newPrice)
+
+    }
+    const removeQuantity = () => {
+
+        let newPrice = newSupplements.map(suppm => {
+
+            if (suppm.suppmName === name && suppm.qty > 1) {
+
+                return { ...suppm, qty: suppm.subtractQty() }
+
+            }
+            return suppm;
+
         })
-        setNewSupplements(updatePrice)
+
+        setNewSupplements(newPrice);
     }
     const handleShoping = () => {
         addToShopingCart(newSupplements, name)
     }
 
     let currentPrice = newSupplements.map(p => {
-        if (p.name === name) {
-            return p.price
+        if (p.suppmName === name) {
+            return p.price();
         }
+    })
+    let currentQty = newSupplements.map(p => {
+        if (p.suppmName === name) return p.qty
+
     })
 
 
@@ -77,8 +112,8 @@ function Cards({ classes, img, name, about, supplement, addToShopingCart }) {
                 <Button onClick={addQuantity} size="small" color="primary">
                     <ArrowUpwardIcon />
                 </Button>
-                <span>{quantity}</span>
-                <Button onClick={() => removeQuantity(name)} size="small" color="primary">
+                <span>{currentQty}</span>
+                <Button onClick={removeQuantity} size="small" color="primary">
                     <ArrowDownwardIcon />
                 </Button>
                 <Button onClick={handleShoping} size="small" color="primary">

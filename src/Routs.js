@@ -15,13 +15,24 @@ function Routs() {
         });
     }
 
-
     const addToShopingCart = (array, name) => {
         array.map(suppm => {
-            if (suppm.name === name) {
-                setShopingCart([...shopingCart, suppm])
+            if (suppm.suppmName === name) {
+                setShopingCart([...shopingCart, suppm]);
             }
+
         })
+
+        checkDupplicate()
+    }
+
+
+    const checkDupplicate = () => {
+        let filterd = shopingCart.filter((item, i) => shopingCart.indexOf(item) === i)
+
+        console.log(filterd)
+        setShopingCart(filterd)
+        console.log(shopingCart)
 
     }
 
