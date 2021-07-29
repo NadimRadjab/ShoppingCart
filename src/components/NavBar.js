@@ -99,7 +99,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function NavBar({ cartItems }) {
+
+function NavBar({ cartItems,
+    addQuantityCart,
+    removeQuantityCart,
+    removeShopingCart,
+    totalPrice }) {
+
+
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
     const classes = useStyles();
@@ -151,6 +158,9 @@ function NavBar({ cartItems }) {
                 <List>
                     {cartItems.map(item => (
                         <ShopingCard
+                            removeShopingCart={removeShopingCart}
+                            removeQuantityCart={removeQuantityCart}
+                            addQuantityCart={addQuantityCart}
                             supplement={cartItems}
                             img={item.img}
                             qty={item.qty}
@@ -160,7 +170,9 @@ function NavBar({ cartItems }) {
                     ))}
 
                 </List>
-                <Typography className={classes.total} variant='h5' component='h2'>Total:</Typography>
+                <Typography className={classes.total} variant='h5' component='h2'>Total: {totalPrice().toFixed(2)}&#8364;  </Typography>
+                <Typography className={classes.total} variant='h6' component='p'>  Includes 19% VAT </Typography>
+
                 <Divider />
 
             </Drawer>

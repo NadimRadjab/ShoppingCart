@@ -8,8 +8,27 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
 import styles from '../styles/ShopingCardStyles';
 
-function ShopingCard({ classes, name, price, img, qty }) {
+function ShopingCard({
+    classes,
+    name,
+    price,
+    img, qty,
+    removeQuantityCart,
+    addQuantityCart,
+    removeShopingCart,
+}) {
 
+
+
+    const handleAddQuantity = () => {
+        addQuantityCart(name);
+    }
+    const handleSubtractQuantity = () => {
+        removeQuantityCart(name);
+    }
+    const handleRemove = () => {
+        removeShopingCart(name);
+    }
     return (
         <Card className={classes.root} >
             <div className={classes.imgContainer}>
@@ -22,25 +41,24 @@ function ShopingCard({ classes, name, price, img, qty }) {
                         {name}
                     </Typography>
                     <Typography color="textSecondary" component="h3">
-                        {price}
-                        {/* {currentPrice}&#8364; */}
+                        {price.toFixed(2)}&#8364;
                     </Typography>
 
 
                 </div>
 
                 <CardActions className={classes.actions}>
-                    <Button size="small" color="primary">
+                    <Button onClick={handleSubtractQuantity} size="small" color="primary">
                         <RemoveIcon />
                     </Button>
 
                     <span className={classes.quantity}>{qty}</span>
-                    <Button size="small" color="primary">
+                    <Button onClick={handleAddQuantity} size="small" color="primary">
                         <AddIcon />
                     </Button>
 
                 </CardActions>
-                <Button className={classes.delete} size="small" color="primary">
+                <Button onClick={handleRemove} className={classes.delete} size="small" color="primary">
                     remove
                 </Button>
 

@@ -12,7 +12,7 @@ function Routs() {
 
     const findSupplement = id => {
         return supplement.find(suppm => {
-            return suppm.id === id
+            return suppm.id === id;
         });
     }
 
@@ -21,11 +21,10 @@ function Routs() {
         array.map(suppm => {
 
             if (suppm.suppmName === name) {
-                console.log(suppm.qty)
 
                 setShopingCart(prev => {
-                    const isItemInCart = prev.find(item => item.suppmName === name)
-                    console.log(isItemInCart)
+
+                    const isItemInCart = prev.find(item => item.suppmName === name);
                     if (isItemInCart) {
                         return prev.map(item => (
                             item.suppmName === name
@@ -34,7 +33,7 @@ function Routs() {
                         ))
 
                     }
-                    console.log(prev)
+
                     return [...prev, suppm];
                 })
 
@@ -42,21 +41,73 @@ function Routs() {
 
         })
 
+    }
+    const addQuantityCart = (name) => {
+
+        let newPrice = (shopingCart.map(suppm => {
+            if (suppm.suppmName === name) {
+
+                return { ...suppm, qty: suppm.addQty() }
+
+            }
+            return suppm;
+
+
+        }))
+        setShopingCart(newPrice);
 
     }
+    const removeQuantityCart = (name) => {
 
+        let newPrice = shopingCart.map(suppm => {
 
+            if (suppm.suppmName === name && suppm.qty > 1) {
+
+                return { ...suppm, qty: suppm.subtractQty() }
+
+            }
+            return suppm;
+
+        })
+
+        setShopingCart(newPrice);
+    }
+
+    const removeShopingCart = (name) => {
+        let newShopingCart = shopingCart.filter(item => item.suppmName !== name);
+        setShopingCart(newShopingCart)
+    }
+    const totalPrice = () => {
+        let total = shopingCart.reduce((prev, cur) => cur.price() * 1.19 + prev, 0);
+
+        return total;
+    }
 
 
     return (
 
         <BrowserRouter>
             <Switch>
-                <Route exact path='/' render={() => <App cartItems={shopingCart} />} />
+                <Route exact path='/'
+                    render={() => <App
+                        totalPrice={totalPrice}
+                        cartItems={shopingCart}
+                        removeShopingCart={removeShopingCart}
+                        addQuantityCart={addQuantityCart}
+                        removeQuantityCart={removeQuantityCart}
+
+                    />} />
+
+
+
                 <Route
                     exact path='/shoping/:id'
                     render={(routeProps) => <Shoping
-                        cartItems={[...shopingCart]}
+                        totalPrice={totalPrice}
+                        removeShopingCart={removeShopingCart}
+                        addQuantityCart={addQuantityCart}
+                        removeQuantityCart={removeQuantityCart}
+                        cartItems={shopingCart}
                         supplement={supplement}
                         addToShopingCart={addToShopingCart}
                         findSupplement={findSupplement(routeProps.match.params.id)}

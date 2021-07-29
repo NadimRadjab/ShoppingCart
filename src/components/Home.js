@@ -5,10 +5,15 @@ import { Link } from 'react-router-dom'
 import styles from '../styles/HomeStyles'
 import NavBar from './NavBar'
 
-function Home({ classes, cartItems }) {
+function Home({ classes, cartItems, removeShopingCart, addQuantityCart, removeQuantityCart, totalPrice }) {
     return (
         <div className={classes.root}>
-            <NavBar className={classes.nav} cartItems={cartItems} />
+
+            <NavBar cartItems={cartItems}
+                totalPrice={totalPrice}
+                addQuantityCart={addQuantityCart}
+                removeQuantityCart={removeQuantityCart}
+                removeShopingCart={removeShopingCart} />
 
             <div className={classes.stuff}>
                 <div className={classes.items}>

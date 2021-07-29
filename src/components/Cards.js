@@ -82,7 +82,7 @@ function Cards({ classes, img, name, about, supplement, addToShopingCart }) {
 
     let currentPrice = newSupplements.map(p => {
         if (p.suppmName === name) {
-            return p.price();
+            return p.price().toFixed(2);
         }
     })
     let currentQty = newSupplements.map(p => {

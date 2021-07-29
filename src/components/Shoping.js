@@ -6,12 +6,26 @@ import styles from '../styles/ShopingStyles'
 import NavBar from './NavBar';
 
 
-function Shoping({ classes, findSupplement, supplement, addToShopingCart, cartItems }) {
+function Shoping({
+    classes,
+    findSupplement,
+    supplement,
+    addToShopingCart,
+    cartItems,
+    addQuantityCart,
+    removeQuantityCart,
+    removeShopingCart,
+    totalPrice }) {
 
 
     return (
         <div className={classes.root}>
-            <NavBar cartItems={cartItems} />
+            <NavBar
+                totalPrice={totalPrice}
+                cartItems={cartItems}
+                addQuantityCart={addQuantityCart}
+                removeQuantityCart={removeQuantityCart}
+                removeShopingCart={removeShopingCart} />
             <div className={classes.cards}>
                 <div className={classes.items}>
                     <SideBar links={supplement} />
