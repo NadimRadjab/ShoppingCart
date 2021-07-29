@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import supplements from './supplements';
 import App from './App';
@@ -6,6 +6,7 @@ import Shoping from './components/Shoping';
 import ShopingCart from './components/ShopingCart';
 
 function Routs() {
+
     const [supplement, setSupplement] = useState(supplements);
     const [shopingCart, setShopingCart] = useState([]);
 
@@ -16,25 +17,35 @@ function Routs() {
     }
 
     const addToShopingCart = (array, name) => {
+
         array.map(suppm => {
+
             if (suppm.suppmName === name) {
-                setShopingCart([...shopingCart, suppm]);
+                console.log(suppm.qty)
+
+                setShopingCart(prev => {
+                    const isItemInCart = prev.find(item => item.suppmName === name)
+                    console.log(isItemInCart)
+                    if (isItemInCart) {
+                        return prev.map(item => (
+                            item.suppmName === name
+                                ? { ...item, qty: item.qty + suppm.qty }
+                                : item
+                        ))
+
+                    }
+                    console.log(prev)
+                    return [...prev, suppm];
+                })
+
             }
 
         })
 
-        checkDupplicate()
-    }
-
-
-    const checkDupplicate = () => {
-        let filterd = shopingCart.filter((item, i) => shopingCart.indexOf(item) === i)
-
-        console.log(filterd)
-        setShopingCart(filterd)
-        console.log(shopingCart)
 
     }
+
+
 
 
     return (
@@ -45,7 +56,7 @@ function Routs() {
                 <Route
                     exact path='/shoping/:id'
                     render={(routeProps) => <Shoping
-                        cartItems={shopingCart}
+                        cartItems={[...shopingCart]}
                         supplement={supplement}
                         addToShopingCart={addToShopingCart}
                         findSupplement={findSupplement(routeProps.match.params.id)}
