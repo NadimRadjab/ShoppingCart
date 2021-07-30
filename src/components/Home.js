@@ -1,11 +1,23 @@
 import React from 'react'
 import { withStyles } from '@material-ui/styles'
 import { Button } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import styles from '../styles/HomeStyles'
 import NavBar from './NavBar'
 
-function Home({ classes, cartItems, removeShopingCart, addQuantityCart, removeQuantityCart, totalPrice }) {
+function Home({
+
+    classes,
+    cartItems,
+    removeShopingCart,
+    addQuantityCart,
+    removeQuantityCart,
+    totalPrice }) {
+    let history = useHistory();
+    const handleClick = () => {
+        history.push('/shoping/proteins-sup');
+    }
+
     return (
         <div className={classes.root}>
 
@@ -19,11 +31,11 @@ function Home({ classes, cartItems, removeShopingCart, addQuantityCart, removeQu
                 <div className={classes.items}>
                     <h1>Tiger Mode Supplements</h1>
                     <h2>Now available for order globally.</h2>
-                    <Link to='/shoping/proteins-sup'>
-                        <Button variant='contained' color='default'>
-                            Shop Now
-                        </Button>
-                    </Link>
+
+                    <Button onClick={handleClick} variant='contained' color='default'>
+                        Shop Now
+                    </Button>
+
                 </div>
             </div>
         </div>

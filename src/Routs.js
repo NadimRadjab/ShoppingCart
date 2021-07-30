@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import supplements from './supplements';
 import App from './App';
 import Shoping from './components/Shoping';
-import ShopingCart from './components/ShopingCart';
+
 
 function Routs() {
 
@@ -89,7 +89,8 @@ function Routs() {
         <BrowserRouter>
             <Switch>
                 <Route exact path='/'
-                    render={() => <App
+                    render={(...routeProps) => <App
+                        routeProps={routeProps}
                         totalPrice={totalPrice}
                         cartItems={shopingCart}
                         removeShopingCart={removeShopingCart}
@@ -114,9 +115,6 @@ function Routs() {
                     />} />
 
 
-                <Route
-                    exact path='/shoping-cart'
-                    render={() => <ShopingCart cartItems={shopingCart} />} />
             </Switch>
 
         </BrowserRouter>

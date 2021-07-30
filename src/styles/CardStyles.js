@@ -12,7 +12,15 @@ const styles = {
     actions: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
-    }
+        justifyContent: 'center',
+        '& svg': {
+            color: 'gray'
+        }
+    },
+    quantity: {
+        width: '40px',
+        textAlign: 'center',
+        border: '1px solid gray'
+    },
 }
 export default styles;

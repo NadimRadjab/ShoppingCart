@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import Cards from './Cards';
 import SideBar from './SideBar';
+import Snackbar from '@material-ui/core/Snackbar';
 import { withStyles } from '@material-ui/styles'
 import styles from '../styles/ShopingStyles'
 import NavBar from './NavBar';
+import { IconButton } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close'
 
 
 function Shoping({
@@ -17,6 +20,11 @@ function Shoping({
     removeShopingCart,
     totalPrice }) {
 
+    const [open, setOpen] = React.useState(true);
+
+    const closeSnackBar = () => {
+        setOpen(false)
+    }
 
     return (
         <div className={classes.root}>
@@ -45,6 +53,16 @@ function Shoping({
 
                 </div>
             </div>
+            <Snackbar
+                onClose={closeSnackBar}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                open={open}
+                autoHideDuration={3000}
+                message={<span id='message'>Hi</span>}
+                ContentProps={{ "aria-describedby": 'message' }}
+                action={<IconButton onClick={closeSnackBar}>
+                    <CloseIcon color='inherit' key='close' aria-label='close' />
+                </IconButton>} />
         </div>
     )
 }

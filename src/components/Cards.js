@@ -6,12 +6,12 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import AddIcon from '@material-ui/icons/Add';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import RemoveIcon from '@material-ui/icons/Remove';
 import styles from '../styles/CardStyles';
 
 function Cards({ classes, img, name, about, supplement, addToShopingCart }) {
-    const [quantity, setQuantity] = useState(1);
     const [newSupplements, setNewSupplements] = useState([])
 
 
@@ -35,19 +35,17 @@ function Cards({ classes, img, name, about, supplement, addToShopingCart }) {
                 }
 
             }
-            // return { ...suppm, price: suppm.price * quantity };
+
             return newObj
         })
-
 
         setNewSupplements(updatePrice)
 
 
-    }, [quantity])
+    }, [])
 
 
     const addQuantity = () => {
-        // setQuantity(quantity + 1);
         let newPrice = (newSupplements.map(suppm => {
             if (suppm.suppmName === name) {
 
@@ -109,15 +107,16 @@ function Cards({ classes, img, name, about, supplement, addToShopingCart }) {
                 <Typography color="textSecondary" component="h3">
                     {currentPrice}&#8364;
                 </Typography>
-                <Button onClick={addQuantity} size="small" color="primary">
-                    <ArrowUpwardIcon />
-                </Button>
-                <span>{currentQty}</span>
                 <Button onClick={removeQuantity} size="small" color="primary">
-                    <ArrowDownwardIcon />
+                    <RemoveIcon />
+                </Button>
+
+                <span className={classes.quantity}>{currentQty}</span>
+                <Button onClick={addQuantity} size="small" color="primary">
+                    <AddIcon />
                 </Button>
                 <Button onClick={handleShoping} size="small" color="primary">
-                    Add To Cart
+                    <ShoppingCartIcon />
                 </Button>
             </CardActions>
 
