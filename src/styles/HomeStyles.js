@@ -17,6 +17,7 @@ const styles = {
         left: '20%',
         width: '60%'
 
-    }
+    },
+
 }
 export default styles

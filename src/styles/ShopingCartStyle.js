@@ -1,4 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { display } from '@material-ui/system';
+import sizes from './sizes';
 const styles = makeStyles((theme) => ({
     '@global': {
         '.fade-exit': {
@@ -13,6 +15,7 @@ const styles = makeStyles((theme) => ({
     root: {
         display: 'flex',
 
+
     },
 
     hide: {
@@ -20,6 +23,16 @@ const styles = makeStyles((theme) => ({
     },
     drawer: {
         flexShrink: 0,
+
+    },
+    drawerPaper: {
+        [sizes.down('sm')]: {
+            width: '340px'
+        }
+
+    },
+    cardsContainer: {
+
     },
     drawerHeader: {
         display: 'flex',
@@ -29,11 +42,15 @@ const styles = makeStyles((theme) => ({
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-start',
+        [sizes.down('sm')]: {
+            width: '300px'
+        }
+
     },
+
     total: {
         margin: '0.6rem',
-        width: '70%'
-
+        width: '70%',
     },
     empty: {
         position: 'absolute',

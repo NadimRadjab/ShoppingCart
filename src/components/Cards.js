@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
@@ -100,18 +99,21 @@ function Cards({
 
     return (
         <Card className={classes.root} >
-            <CardActionArea>
-                <img src={img} alt={name} />
+            <div>
+                <div className={classes.img}>
+                    <img src={img} alt={name} />
+                </div>
+
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {name}
                     </Typography>
-                    <Typography color="textSecondary" component="h2">
+                    <Typography color="textSecondary" component="p">
                         {about}
                     </Typography>
 
                 </CardContent>
-            </CardActionArea>
+            </div>
             <CardActions className={classes.actions}>
                 <Typography color="textSecondary" component="h3">
                     {currentPrice}&#8364;

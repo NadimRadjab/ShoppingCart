@@ -73,7 +73,7 @@ export default [{
     suppm: [{
         name: 'Optimum Nutrition Creatine',
         img: opC,
-        about: 'AOptimum  Nutrition  Creatine Powder is 100% micronized creatine powder of the best quality. The job of creatine is to restore ATP that has been used up.',
+        about: 'Optimum  Nutrition  Creatine Powder is 100% micronized creatine powder of the best quality. The job of creatine is to restore ATP that has been used up.',
         price: '15.34'
     },
     {

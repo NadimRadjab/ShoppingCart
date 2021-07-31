@@ -98,7 +98,7 @@ function Routs() {
 
                             <Route exact path='/'
                                 render={(...routeProps) =>
-                                    <Page>
+                                    <Page  >
                                         <App
                                             routeProps={routeProps}
                                             totalPrice={totalPrice}
@@ -125,6 +125,20 @@ function Routs() {
                                             addToShopingCart={addToShopingCart}
                                             findSupplement={findSupplement(routeProps.match.params.id)}
                                         /> </Page>} />
+
+                            <Route
+                                render={(...routeProps) =>
+                                    <Page>
+                                        <App
+                                            routeProps={routeProps}
+                                            totalPrice={totalPrice}
+                                            cartItems={shopingCart}
+                                            removeShopingCart={removeShopingCart}
+                                            addQuantityCart={addQuantityCart}
+                                            removeQuantityCart={removeQuantityCart}
+
+                                        /> </Page>} />
+
 
 
                         </Switch>

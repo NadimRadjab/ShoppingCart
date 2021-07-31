@@ -1,22 +1,27 @@
 const styles = {
     root: {
         display: 'flex',
-
+        height: '270px',
     },
     navigation: {
         width: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        height: '270px',
         '& a': {
             textDecoration: 'none',
-            color: 'gray',
+            color: '#959498',
             fontSize: '22px'
         },
         '& svg': {
-            color: 'gray',
+            color: '#959498',
             fontSize: '40px'
+        },
+        '& a:hover': {
+            transform: 'scale(1.2)'
+        },
+        '& svg:hover': {
+            transform: 'scale(1.2)'
         }
     },
     count: {
@@ -33,4 +38,4 @@ const styles = {
 }
 
 
-export default styles
+export default styles;

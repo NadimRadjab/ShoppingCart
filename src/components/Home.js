@@ -6,7 +6,6 @@ import styles from '../styles/HomeStyles'
 import NavBar from './NavBar'
 
 function Home({
-
     classes,
     cartItems,
     removeShopingCart,
@@ -21,7 +20,8 @@ function Home({
     return (
         <div className={classes.root}>
 
-            <NavBar cartItems={cartItems}
+            <NavBar
+                cartItems={cartItems}
                 totalPrice={totalPrice}
                 addQuantityCart={addQuantityCart}
                 removeQuantityCart={removeQuantityCart}

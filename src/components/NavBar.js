@@ -11,6 +11,7 @@ import { withStyles } from '@material-ui/styles';
 
 
 
+
 function NavBar({
     classes,
     cartItems,
@@ -24,12 +25,17 @@ function NavBar({
 
     const handleDrawerOpen = () => {
         setOpen(true);
+
+
     };
+
 
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
     let cartItemsCount = cartItems.length
+
     return (
         <div className={classes.root}>
             <div className={classes.navigation}>

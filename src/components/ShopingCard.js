@@ -37,7 +37,7 @@ function ShopingCard({
             </div>
             <div>
                 <Typography className={classes.price} color="textSecondary" component="h3">
-                    {price.toFixed(2)}&#8364;
+                    &#8364;{price.toFixed(2)}
                 </Typography>
                 <div className={classes.name}>
                     <Typography gutterBottom variant="h6" component="p">

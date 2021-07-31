@@ -41,12 +41,13 @@ function ShopingCart({
             <CssBaseline />
 
             <Drawer
-
                 className={classes.drawer}
                 variant="persistent"
                 anchor="right"
                 open={open}
-
+                classes={{
+                    paper: classes.drawerPaper,
+                }}
             >
                 <div className={classes.drawerHeader}>
                     <IconButton onClick={handleClose}>
@@ -55,27 +56,27 @@ function ShopingCart({
                 </div>
                 <Divider />
                 {cartItemsCount <= 0 ? <Typography className={classes.empty} variant='h5' component='h2'>Shoping Cart is Empty.</Typography> :
-                    <div>
-                        <List className={classes.cards} >
-                            <TransitionGroup>
-                                {cartItems.map(item => (
-                                    <CSSTransition key={item.suppmName} classNames='fade' timeout={300}>
-                                        <ShopingCard
-                                            removeShopingCart={removeShopingCart}
-                                            removeQuantityCart={removeQuantityCart}
-                                            addQuantityCart={addQuantityCart}
-                                            supplement={cartItems}
-                                            img={item.img}
-                                            qty={item.qty}
-                                            name={item.suppmName}
-                                            price={item.price()}
-                                            key={item.suppmName} />
-                                    </CSSTransition>
-                                ))}
-                            </TransitionGroup>
-                        </List>
+                    <div className={classes.cardsContainer}>
+                        <TransitionGroup className={classes.cards}>
+                            {cartItems.map(item => (
+                                <CSSTransition key={item.suppmName} classNames='fade' timeout={300}>
+                                    <ShopingCard
+                                        removeShopingCart={removeShopingCart}
+                                        removeQuantityCart={removeQuantityCart}
+                                        addQuantityCart={addQuantityCart}
+                                        supplement={cartItems}
+                                        img={item.img}
+                                        qty={item.qty}
+                                        name={item.suppmName}
+                                        price={item.price()}
+                                        key={item.suppmName} />
+                                </CSSTransition>
+                            ))}
 
-                        <Typography className={classes.total} variant='h5' component='h2'>Total: {totalPrice().toFixed(2)}&#8364;  </Typography>
+                        </TransitionGroup>
+
+
+                        <Typography className={classes.total} variant='h5' component='h2'>Total: &#8364;{totalPrice().toFixed(2)} </Typography>
                         <Typography className={classes.total} variant='h6' component='p'>  Includes 19% VAT </Typography>
                         <Button className={classes.checkout} variant='contained' color='default'>CHECKOUT</Button>
 

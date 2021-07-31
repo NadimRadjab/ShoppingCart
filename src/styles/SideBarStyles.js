@@ -3,12 +3,6 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        '& .active:after': {
-            width: '100%',
-            top: '34px',
-            left: 0
-        }
-
     },
     active: {
         display: 'inline-block',
@@ -25,13 +19,19 @@ const styles = {
             width: '0%',
             height: '4px',
             display: 'block',
-            backgroundColor: 'black',
+            backgroundColor: 'gray',
+            opacity: '0.5',
             content: '" "',
             position: 'absolute',
             top: '34px',
             left: '50%',
-            transition: 'left 0.7s cubic-bezier(0.215, 0.61, 0.355,1), width 0.5s cubic-bezier(0.215, 0.61, 0.355,1)'
+            transition: 'left 0.9s cubic-bezier(0.215, 0.61, 0.355,1), width 0.5s cubic-bezier(0.215, 0.61, 0.355,1)'
         },
+        '&:hover:after': {
+            width: '100%',
+            top: '34px',
+            left: 0
+        }
 
 
     }

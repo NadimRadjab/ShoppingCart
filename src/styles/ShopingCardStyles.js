@@ -1,3 +1,4 @@
+import sizes from "./sizes";
 const styles = {
     root: {
         position: 'relative',
@@ -8,6 +9,9 @@ const styles = {
         width: '90%',
         height: '200px',
         margin: '1rem',
+        [sizes.down('sm')]: {
+
+        }
 
 
     },
@@ -23,11 +27,28 @@ const styles = {
             height: '150px',
             width: '190px',
         },
+        [sizes.down('sm')]: {
+            '& img': {
+                height: '90px',
+                width: '120px',
+            },
+        }
     },
     name: {
         display: 'flex',
         flexDirection: 'row',
         margin: '1rem',
+        [sizes.down('sm')]: {
+            '& p': {
+                display: 'inline-block',
+                fontSize: '18px'
+            }
+        },
+        [sizes.down('xs')]: {
+            '& p': {
+                fontSize: '14px'
+            }
+        }
 
     },
     price: {
@@ -38,7 +59,14 @@ const styles = {
     actions: {
         '& svg': {
             color: 'black'
-        }
+        },
+        [sizes.down('sm')]: {
+            width: '90%',
+            '& p': {
+                display: 'inline-block',
+                fontSize: '18px'
+            }
+        },
     },
 
     quantity: {
