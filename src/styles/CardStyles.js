@@ -17,6 +17,7 @@ const styles = {
             color: 'gray'
         }
     },
+
     quantity: {
         width: '40px',
         textAlign: 'center',

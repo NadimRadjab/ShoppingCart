@@ -11,7 +11,14 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import RemoveIcon from '@material-ui/icons/Remove';
 import styles from '../styles/CardStyles';
 
-function Cards({ classes, img, name, about, supplement, addToShopingCart }) {
+function Cards({
+    classes,
+    img,
+    name,
+    about,
+    supplement,
+    addToShopingCart,
+    openSnackBar }) {
     const [newSupplements, setNewSupplements] = useState([])
 
 
@@ -75,13 +82,15 @@ function Cards({ classes, img, name, about, supplement, addToShopingCart }) {
         setNewSupplements(newPrice);
     }
     const handleShoping = () => {
-        addToShopingCart(newSupplements, name)
+        addToShopingCart(newSupplements, name);
+        openSnackBar();
     }
 
     let currentPrice = newSupplements.map(p => {
         if (p.suppmName === name) {
             return p.price().toFixed(2);
         }
+
     })
     let currentQty = newSupplements.map(p => {
         if (p.suppmName === name) return p.qty

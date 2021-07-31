@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import supplements from './supplements';
 import App from './App';
 import Shoping from './components/Shoping';
+import Page from './components/Page';
+import {
+    CSSTransition,
+    TransitionGroup,
+} from 'react-transition-group';
 
 
 function Routs() {
 
-    const [supplement, setSupplement] = useState(supplements);
+    const [supplement] = useState(supplements);
     const [shopingCart, setShopingCart] = useState([]);
 
     const findSupplement = id => {
@@ -18,7 +23,7 @@ function Routs() {
 
     const addToShopingCart = (array, name) => {
 
-        array.map(suppm => {
+        return array.map(suppm => {
 
             if (suppm.suppmName === name) {
 
@@ -85,37 +90,48 @@ function Routs() {
 
 
     return (
-
         <BrowserRouter>
-            <Switch>
-                <Route exact path='/'
-                    render={(...routeProps) => <App
-                        routeProps={routeProps}
-                        totalPrice={totalPrice}
-                        cartItems={shopingCart}
-                        removeShopingCart={removeShopingCart}
-                        addQuantityCart={addQuantityCart}
-                        removeQuantityCart={removeQuantityCart}
+            <Route render={({ location }) => (
+                <TransitionGroup>
+                    <CSSTransition key={location.key} classNames='page' timeout={300}>
+                        <Switch location={location}>
 
-                    />} />
+                            <Route exact path='/'
+                                render={(...routeProps) =>
+                                    <Page>
+                                        <App
+                                            routeProps={routeProps}
+                                            totalPrice={totalPrice}
+                                            cartItems={shopingCart}
+                                            removeShopingCart={removeShopingCart}
+                                            addQuantityCart={addQuantityCart}
+                                            removeQuantityCart={removeQuantityCart}
 
-
-
-                <Route
-                    exact path='/shoping/:id'
-                    render={(routeProps) => <Shoping
-                        totalPrice={totalPrice}
-                        removeShopingCart={removeShopingCart}
-                        addQuantityCart={addQuantityCart}
-                        removeQuantityCart={removeQuantityCart}
-                        cartItems={shopingCart}
-                        supplement={supplement}
-                        addToShopingCart={addToShopingCart}
-                        findSupplement={findSupplement(routeProps.match.params.id)}
-                    />} />
+                                        /> </Page>} />
 
 
-            </Switch>
+
+                            <Route
+                                exact path='/shoping/:id'
+                                render={(routeProps) =>
+                                    <Page>
+                                        <Shoping
+                                            totalPrice={totalPrice}
+                                            removeShopingCart={removeShopingCart}
+                                            addQuantityCart={addQuantityCart}
+                                            removeQuantityCart={removeQuantityCart}
+                                            cartItems={shopingCart}
+                                            supplement={supplement}
+                                            addToShopingCart={addToShopingCart}
+                                            findSupplement={findSupplement(routeProps.match.params.id)}
+                                        /> </Page>} />
+
+
+                        </Switch>
+                    </CSSTransition>
+                </TransitionGroup>
+            )} />
+
 
         </BrowserRouter>
     )

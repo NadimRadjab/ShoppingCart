@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import AddIcon from '@material-ui/icons/Add';
@@ -36,14 +36,13 @@ function ShopingCard({
 
             </div>
             <div>
-                <div className={classes.price}>
+                <Typography className={classes.price} color="textSecondary" component="h3">
+                    {price.toFixed(2)}&#8364;
+                </Typography>
+                <div className={classes.name}>
                     <Typography gutterBottom variant="h6" component="p">
                         {name}
                     </Typography>
-                    <Typography color="textSecondary" component="h3">
-                        {price.toFixed(2)}&#8364;
-                    </Typography>
-
 
                 </div>
 

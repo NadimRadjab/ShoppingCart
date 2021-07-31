@@ -30,7 +30,7 @@ const styles = {
             position: 'absolute',
             top: '34px',
             left: '50%',
-            transition: 'left 0.4s cubic-bezier(0.215, 0.61, 0.355,1), width 0.5s cubic-bezier(0.215, 0.61, 0.355,1)'
+            transition: 'left 0.7s cubic-bezier(0.215, 0.61, 0.355,1), width 0.5s cubic-bezier(0.215, 0.61, 0.355,1)'
         },
 
 

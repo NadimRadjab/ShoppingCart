@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Cards from './Cards';
 import SideBar from './SideBar';
 import Snackbar from '@material-ui/core/Snackbar';
@@ -20,8 +20,11 @@ function Shoping({
     removeShopingCart,
     totalPrice }) {
 
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
 
+    const handelOpen = () => {
+        setOpen(true);
+    };
     const closeSnackBar = () => {
         setOpen(false)
     }
@@ -34,12 +37,14 @@ function Shoping({
                 addQuantityCart={addQuantityCart}
                 removeQuantityCart={removeQuantityCart}
                 removeShopingCart={removeShopingCart} />
+
             <div className={classes.cards}>
                 <div className={classes.items}>
                     <SideBar links={supplement} />
                     <div className={classes.supplements}>
                         {findSupplement.suppm.map(p => (
                             <Cards
+                                openSnackBar={handelOpen}
                                 key={p.name}
                                 name={p.name}
                                 about={p.about}
@@ -57,8 +62,8 @@ function Shoping({
                 onClose={closeSnackBar}
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                 open={open}
-                autoHideDuration={3000}
-                message={<span id='message'>Hi</span>}
+                autoHideDuration={2000}
+                message={<span id='message'>Item was added to Your cart.</span>}
                 ContentProps={{ "aria-describedby": 'message' }}
                 action={<IconButton onClick={closeSnackBar}>
                     <CloseIcon color='inherit' key='close' aria-label='close' />
