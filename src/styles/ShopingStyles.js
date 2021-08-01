@@ -5,6 +5,7 @@ const styles = {
         height: '100vh',
         backgroundColor: '#FAF9F4',
         overflow: 'auto',
+        fontFamily: ' Montserrat, sans-serif',
     },
     cards: {
         display: 'flex',
@@ -25,7 +26,10 @@ const styles = {
             gridTemplateColumns: '40% 60%',
         },
         [sizes.down('xs')]: {
-            gridTemplateColumns: '30% 70%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column'
         }
 
     },

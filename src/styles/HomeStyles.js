@@ -1,6 +1,7 @@
 import bg1 from '../imgs/bg1.jpeg'
 const styles = {
     root: {
+        fontFamily: ' Montserrat, sans-serif',
         height: '100vh',
         backgroundSize: 'cover',
         background: `url(${bg1}) no-repeat center center fixed`,

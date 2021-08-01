@@ -18,10 +18,12 @@ const styles = {
             fontSize: '40px'
         },
         '& a:hover': {
-            transform: 'scale(1.2)'
+            transform: 'scale(1.2)',
+            transition: 'transform 0.3s ease-in-out'
         },
         '& svg:hover': {
-            transform: 'scale(1.2)'
+            transform: 'scale(1.2)',
+            transition: 'transform 0.3s ease-in-out'
         }
     },
     count: {

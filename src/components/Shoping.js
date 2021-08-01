@@ -7,6 +7,7 @@ import styles from '../styles/ShopingStyles'
 import NavBar from './NavBar';
 import { IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close'
+import Footer from './Footer';
 
 
 function Shoping({
@@ -63,11 +64,12 @@ function Shoping({
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                 open={open}
                 autoHideDuration={2000}
-                message={<span id='message'>Item was added to Your cart.</span>}
+                message={<span id='message'>Item was added to the cart.</span>}
                 ContentProps={{ "aria-describedby": 'message' }}
                 action={<IconButton onClick={closeSnackBar}>
                     <CloseIcon color='inherit' key='close' aria-label='close' />
                 </IconButton>} />
+            <Footer />
         </div>
     )
 }

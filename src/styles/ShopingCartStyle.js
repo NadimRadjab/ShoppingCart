@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { display } from '@material-ui/system';
 import sizes from './sizes';
 const styles = makeStyles((theme) => ({
     '@global': {
@@ -55,7 +54,12 @@ const styles = makeStyles((theme) => ({
     empty: {
         position: 'absolute',
         bottom: '400px',
-        left: '120px'
+        left: '120px',
+        [sizes.down('xs')]: {
+            fontSize: '20px',
+            bottom: '400px',
+            left: '100px',
+        }
 
     },
     checkout: {

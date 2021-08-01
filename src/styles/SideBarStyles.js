@@ -1,8 +1,12 @@
+import sizes from "./sizes"
 const styles = {
     root: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        [sizes.down('xs')]: {
+            flexDirection: 'row'
+        }
     },
     active: {
         display: 'inline-block',
@@ -31,6 +35,9 @@ const styles = {
             width: '100%',
             top: '34px',
             left: 0
+        },
+        [sizes.down('xs')]: {
+            fontSize: '17px'
         }
 
 
