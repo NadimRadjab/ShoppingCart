@@ -55,10 +55,15 @@ const styles = makeStyles((theme) => ({
         position: 'absolute',
         bottom: '400px',
         left: '120px',
+        [sizes.down('sm')]: {
+            fontSize: '20px',
+            bottom: '400px',
+            left: '80px',
+        },
         [sizes.down('xs')]: {
             fontSize: '20px',
             bottom: '400px',
-            left: '100px',
+            left: '80px',
         }
 
     },
@@ -67,6 +72,12 @@ const styles = makeStyles((theme) => ({
         width: '150px',
         margin: '0.5rem',
         left: '40%',
+        [sizes.down('sm')]: {
+            left: '90px',
+        },
+        [sizes.down('xs')]: {
+            left: '90px',
+        }
 
     }
 }));

@@ -16,7 +16,6 @@ npm start
 ### Made with:
 
 + [React](https://reactjs.org/)
-
 + [React Router](https://reactrouter.com/)
 + [Material-UI](https://material-ui.com/)
 + [React Transition Group](https://reactcommunity.org/react-transition-group/)
