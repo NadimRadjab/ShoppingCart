@@ -58,7 +58,9 @@ function Shoping({
                     </div>
 
                 </div>
+
             </div>
+
             <Snackbar
                 onClose={closeSnackBar}
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}

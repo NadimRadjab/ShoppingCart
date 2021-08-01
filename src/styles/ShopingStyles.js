@@ -3,6 +3,7 @@ import sizes from "./sizes";
 const styles = {
     root: {
         height: '100vh',
+        position: 'relative',
         backgroundColor: '#FAF9F4',
         overflow: 'auto',
         fontFamily: ' Montserrat, sans-serif',
@@ -13,7 +14,6 @@ const styles = {
         alignItems: 'center'
     },
     items: {
-        height: '80%',
         display: 'grid',
         gridTemplateColumns: '1fr 4fr',
         [sizes.down('lg')]: {
@@ -34,7 +34,6 @@ const styles = {
 
     },
     supplements: {
-        overflow: 'none',
         display: 'grid',
         gridGap: '1rem',
         gridTemplateColumns: 'repeat(3,1fr)',
